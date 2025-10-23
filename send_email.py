@@ -37,7 +37,7 @@ def send_automation_status():
 
         # Email details
         mail.To = "abbireddy.niharika@maersk.com"
-        mail.CC = "kanta.rohitha@maersk.com"
+        # mail.CC = "kanta.rohitha@maersk.com"
         mail.Subject = f"Automation Run Status - {datetime.now():%Y-%m-%d %H:%M}"
 
         # HTML body for better formatting
