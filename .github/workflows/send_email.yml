@@ -1,0 +1,25 @@
+name: Send Automation Email Every 5 Minutes
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # runs every 5 minutes
+  workflow_dispatch:        # manual trigger option
+
+jobs:
+  send-email:
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install pywin32
+
+      - name: Run Automation Email Script
+        run: python send_automation_status.py
